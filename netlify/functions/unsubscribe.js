@@ -15,7 +15,7 @@ exports.handler = async function(event) {
 
     const result = await db.collection("tblleadrawdata").updateOne(
       { _id: new ObjectId(id) },
-      { $set: { Status: "DND-Email", unsubscribereason: reason, unsubscribedAt: new Date() } }
+      { $set: { Status: "DND-Email", OptoutToken: "Yes", unsubscribereason: reason, unsubscribedAt: new Date() } }
     );
 
     await client.close();
